@@ -1,0 +1,23 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Resources:
+  MySNSTopic:
+    Type: 'AWS::SNS::Topic'
+    Properties:
+      DisplayName: 'MySNSTopic'
+      TopicName: 'MySNSTopic'
+  MySNSTopicPolicy:
+    Type: 'AWS::SNS::TopicPolicy'
+    Properties:
+      PolicyDocument:
+        Version: '2012-10-17'
+        Statement:
+          - Effect: 'Allow'
+            Principal:
+              Service: 'sns.amazonaws.com'
+            Action: 'sns:Publish'
+            Resource: !Ref MySNSTopic
+            Condition:
+              StringEquals:
+                'aws:PrincipalAccount': !Ref 'AWS::AccountId'
+      Topics:
+        - !Ref MySNSTopic
