@@ -1,0 +1,87 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My CodeCommit Pipeline App</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #232f3e 0%, #ff9900 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .container {
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            text-align: center;
+            max-width: 600px;
+            width: 90%;
+        }
+        h1 {
+            color: #232f3e;
+            margin-bottom: 16px;
+            font-size: 2em;
+        }
+        .status {
+            background: #e6f7e6;
+            border: 1px solid #4caf50;
+            border-radius: 8px;
+            padding: 12px 20px;
+            margin: 20px 0;
+            color: #2e7d32;
+            font-weight: bold;
+        }
+        .info {
+            color: #555;
+            line-height: 1.8;
+            margin-top: 20px;
+        }
+        .pipeline-badge {
+            display: inline-block;
+            background: #ff9900;
+            color: white;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            margin-top: 16px;
+        }
+        footer {
+            margin-top: 30px;
+            color: #999;
+            font-size: 0.8em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🚀 Hello from CodeCommit!</h1>
+        <div class="status">✅ Deployment Successful</div>
+        <div class="info">
+            <p>This page was deployed via <strong>AWS CodePipeline</strong>.</p>
+            <p>Source: <strong>AWS CodeCommit</strong></p>
+            <p>Build: <strong>AWS CodeBuild</strong></p>
+            <p>Deploy: <strong>Amazon S3 / CloudFront</strong></p>
+        </div>
+        <span class="pipeline-badge">Pipeline v1.0</span>
+        <footer>
+            <p>Deployed on: <span id="deploy-date"></span></p>
+        </footer>
+    </div>
+
+    <script>
+        document.getElementById('deploy-date').textContent = new Date().toLocaleDateString();
+    </script>
+</body>
+</html>
+
